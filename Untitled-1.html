@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang = "es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadKayne</title>
+</head>
+
+<head>
+<body>
+<h1>ENJOY MY ART</h1>
+
+<div class="buttons-row">
+    <button data-genre="all">ALL</button>
+    <button data-genre="hiphop">HIPHOP / RAP</button>
+    <button data-genre="trap">TRAP</button>
+    <button data-genre="instrumental">INSTRUMENTAL</button>
+</div>
+
+<div class="songs-container">
+
+    <div class="song-block hiphop">
+        <div class="image-left">
+            <img src="Fondo Zarek.jpg" alt="Descripción">
+        </div>
+        <div class="text-right">
+            <p>HIPHOP Song 1</p>
+        </div>
+    </div>
+
+    <div class="song-block trap">
+        <div class="image-left">
+            <img src="Fondo Zarek.jpg" alt="Descripción">
+        </div>
+        <div class="text-right">
+            <p>TRAP Song 1</p>
+        </div>
+    </div>
+
+    <div class="song-block instrumental">
+        <div class="image-left">
+            <img src="Fondo Zarek.jpg" alt="Descripción">
+        </div>
+        <div class="text-right">
+            <p>INSTRUMENTAL Song 1</p>
+        </div>
+    </div>
+
+</div>
+<style>
+body {
+    background-color: rgb(224, 136, 19);
+            background-image: url("cover web.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(0,0,0);
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 6px 4px 6px rgb(212, 130, 22);
+    margin-top: 50px;
+}
+
+.buttons-row {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.buttons-row button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: none;
+    border: 1px solid black;
+    transition: 0.3s;
+}
+
+.buttons-row button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.songs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 100px;
+}
+
+.song-block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.song-block .image-left img {
+    max-width: 400px;
+}
+
+.song-block .text-right p {
+    font-size: 1.5rem;
+}
+</style>
+
+<script>
+const buttons = document.querySelectorAll('.buttons-row button');
+const songs = document.querySelectorAll('.song-block');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const genre = button.getAttribute('data-genre');
+
+        songs.forEach(song => {
+            if (genre === 'all') {
+                song.style.display = 'flex';
+            } else if (song.classList.contains(genre)) {
+                song.style.display = 'flex';
+            } else {
+                song.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</head>
